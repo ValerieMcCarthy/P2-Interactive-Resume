@@ -1,15 +1,4 @@
 
-var name = "Valerie Wilson McCarthy";
-var formattedName = HTMLheaderName.replace("%data%", name);
-
-var role = "Entrepreneur";
-var formattedRole = HTMLheaderRole.replace("%data%", role);
-
-
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
-
-
 var bio = {
 	"name" : "Valerie McCarthy",
 	"role": "Entrepreneur",
@@ -29,7 +18,13 @@ var bio = {
 
 // display bio
 bio.display = function () {
-	
+
+	var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+	$("#header").prepend(formattedRole);
+
+	var formattedName = HTMLheaderName.replace("%data%", bio.name);
+	$("#header").prepend(formattedName);
+
 	var formattedHome = HTMLhome.replace("%data%", bio.contacts.home);
 	$("#topContacts").prepend(formattedHome);
 
@@ -60,6 +55,21 @@ bio.display = function () {
 	var formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
 	$("#skills").append(formattedSkill);
 	}
+
+		var formattedHome = HTMLhome.replace("%data%", bio.contacts.home);
+	$("#footerContacts").prepend(formattedHome);
+
+	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+	$("#footerContacts").prepend(formattedTwitter);
+
+	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
+	$("#footerContacts").prepend(formattedGithub);
+
+	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+	$("#footerContacts").prepend(formattedEmail);
+
+	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+	$("#footerContacts").prepend(formattedMobile);
 }
 
 bio.display();
@@ -241,11 +251,6 @@ education.display = function () {
 
 		}
 
-}
-education.display();
-
-
-function displayOnline () {
 	$(".education-entry:last").append(HTMLonlineClasses);
 
 	for (school in education.onlineCourses){
@@ -260,31 +265,13 @@ function displayOnline () {
 
 		var formattedURL = HTMLonlineURL.replace("%data%", education.onlineCourses[school].url);
 		$(".education-entry:last").append(formattedURL);
-	} 
+	} 	
+
 }
+education.display();
 
-displayOnline();	
 
-// display contacts in footer
 
-bio.display = function () {
-	var formattedHome = HTMLhome.replace("%data%", bio.contacts.home);
-	$("#footerContacts").prepend(formattedHome);
-
-	var formattedTwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
-	$("#footerContacts").prepend(formattedTwitter);
-
-	var formattedGithub = HTMLgithub.replace("%data%", bio.contacts.github);
-	$("#footerContacts").prepend(formattedGithub);
-
-	var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
-	$("#footerContacts").prepend(formattedEmail);
-
-	var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
-	$("#footerContacts").prepend(formattedMobile);
-	}
-
-bio.display();
 
 //following is exercise work from videos
 
